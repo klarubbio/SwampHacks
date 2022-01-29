@@ -13,7 +13,8 @@ public class StatisticsWriting : MonoBehaviour
 {
     private static string all = "all.csv";
     private static string calc = "calc.csv";
-    public TextMeshPro text;
+    public TextMeshProUGUI text;
+
 
     // Start is called before the first frame update
     void Start()
@@ -145,9 +146,8 @@ public class StatisticsWriting : MonoBehaviour
             countRows++;
             
         }
-
-    
-        text.SetText("hi");
+        
+        textDisplayed.text = "hi";
         //text.SetText(a);
         //text.SetText(h);
 
