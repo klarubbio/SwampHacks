@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 using TMPro;
 using UnityEngine.UI;
 
+
 public class GatorBehavior : MonoBehaviour
 {
     public GameObject gator;
@@ -140,3 +141,4 @@ public class GatorBehavior : MonoBehaviour
         Debug.Log("next time:" + nextObstacleTime);
     }
 }
+
