@@ -13,7 +13,6 @@ public class StatisticsWriting : MonoBehaviour
 {
     private static string all = "all.csv";
     private static string calc = "calc.csv";
-    public TextMeshProUGUI text;
 
 
     // Start is called before the first frame update
@@ -55,7 +54,7 @@ public class StatisticsWriting : MonoBehaviour
         File.AppendAllText(all, allScores.ToString());
     }
 
-    void Stats()
+    public string[] Stats()
     {
         int total = 0;
         int average;
@@ -146,12 +145,11 @@ public class StatisticsWriting : MonoBehaviour
             countRows++;
             
         }
-        
-        textDisplayed.text = "hi";
+
         //text.SetText(a);
         //text.SetText(h);
-
-    
+        string[] returnArray = new string[] { a, h };
+        return returnArray;
 
     }
 

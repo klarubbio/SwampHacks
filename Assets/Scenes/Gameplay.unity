@@ -734,6 +734,10 @@ MonoBehaviour:
   gator: {fileID: 856772073}
   rock: {fileID: 249552722}
   endText: {fileID: 1131560754}
+  gatorSwim1: {fileID: 21300000, guid: 0e682b4bb2b8b014189466c057561cda, type: 3}
+  gatorSwim2: {fileID: 21300000, guid: 218629602e111ae46bc6c3a86c3c4692, type: 3}
+  gatorJumping: {fileID: 21300000, guid: 8b6bf2c8f22d82c46834c4f9f4e41838, type: 3}
+  gatorDead: {fileID: 21300000, guid: b6eaa20f78900b64992f10acdfd3aa19, type: 3}
 --- !u!1 &1886644993
 GameObject:
   m_ObjectHideFlags: 0
