@@ -26,6 +26,7 @@ public class GatorBehavior : MonoBehaviour
     private SpriteRenderer render;
     private float switchSprite;
     private bool swim1;
+    private bool gatorDeath;
 
 
 
@@ -44,6 +45,7 @@ public class GatorBehavior : MonoBehaviour
         render = gator.GetComponent<SpriteRenderer>();
         switchSprite = 0.2f;
         swim1 = true;
+        gatorDeath = false;
     }
 
     // Update is called once per frame
@@ -58,7 +60,7 @@ public class GatorBehavior : MonoBehaviour
             {
                 score += 10;
                 nextObstacleTime = -1.0f;
-                rock.transform.position = new Vector3(5.1f, 0.0f, -3.0f);
+                rock.transform.position = new Vector3(5.1f, -0.2f, -3.0f);
             }
             //indicates collision has occured
             else if(rock.transform.position.x == 5.0f)
@@ -66,6 +68,7 @@ public class GatorBehavior : MonoBehaviour
                 //report game stats
                 if (!statsReported)
                 {
+                    gatorDeath = true;
                     GetComponent<StatisticsWriting>().End(score);
                     endText.gameObject.GetComponent<Renderer>().enabled = true;
                     endText.SetText("Your Score: " + score + "\n- Press space to play again \n- Press 'S' for statistics");
@@ -116,7 +119,9 @@ public class GatorBehavior : MonoBehaviour
         }
 
 
-        if (gatorJump)
+        if (gatorDeath)
+            render.sprite = gatorDead;
+        else if (gatorJump)
             render.sprite = gatorJumping;
         else if (Time.time >= switchSprite && swim1)
         {
