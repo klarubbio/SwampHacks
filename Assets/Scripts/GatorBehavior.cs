@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
 public class GatorBehavior : MonoBehaviour
 {
     public GameObject gator;
@@ -92,3 +93,4 @@ public class GatorBehavior : MonoBehaviour
         Debug.Log("next time:" + nextObstacleTime);
     }
 }
+
