@@ -23,14 +23,14 @@ public class Scenes : MonoBehaviour
     void Update()
     {
 
-        if(Input.GetKeyDown(KeyCode.S))
+        if(Input.GetKeyDown(KeyCode.Space))
         {
             
            SceneManager.LoadScene("Gameplay", LoadSceneMode.Single);
 
         }
 
-        if(Input.GetKeyDown(KeyCode.J)){
+        if(Input.GetKeyDown(KeyCode.S)){
             SceneManager.LoadScene("Statistics", LoadSceneMode.Single);
             //run Stats stuff
         }
