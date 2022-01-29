@@ -14,7 +14,7 @@ public class StatisticsWriting : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        End(); // change to only death
+        End(0); // change to only death
         Stats(); // change to only stats menu
         
     }
@@ -25,9 +25,9 @@ public class StatisticsWriting : MonoBehaviour
         
     }
 
-    void End()
+    public void End(int newScore)
     {
-        int newScore = 3455; // change to input score
+        //int newScore = 3455; // change to input score
 
         if (!File.Exists(all))
         {

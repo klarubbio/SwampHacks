@@ -2,17 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
+using UnityEngine.UI;
 
 public class GatorBehavior : MonoBehaviour
 {
     public GameObject gator;
     public GameObject rock;
+    public TextMeshPro endText;
 
     private bool rockActive;
     private bool gatorJump;
     private float jumpTime;
     private Vector3 jumpHeight;
     private float nextObstacleTime; //set to -1 after obstacle is deployed
+    private bool statsReported;
+    private int score;
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +28,9 @@ public class GatorBehavior : MonoBehaviour
         jumpTime = -1.0f;
         jumpHeight = new Vector3(0.0f, 0.01f, 0.0f);
         nextObstacleTime = -1.0f;
-        
+        statsReported = false;
+        score = 0;
+        endText.gameObject.GetComponent<Renderer>().enabled = false;
     }
 
     // Update is called once per frame
@@ -36,18 +43,29 @@ public class GatorBehavior : MonoBehaviour
         {
             if (rock.transform.position.z > 3)
             {
+                score += 10;
                 nextObstacleTime = -1.0f;
                 rock.transform.position = new Vector3(5.1f, 0.0f, -3.0f);
             }
             //indicates collision has occured
             else if(rock.transform.position.x == 5.0f)
             {
-                //player loses
-                Debug.Log("you lose");
+                //report game stats
+                if (!statsReported)
+                {
+                    GetComponent<StatisticsWriting>().End(score);
+                    endText.gameObject.GetComponent<Renderer>().enabled = true;
+                    endText.SetText("Your Score: " + score + "\n- Press space to play again \n- Press 'S' for statistics");
+                    Debug.Log(score);
+                    statsReported = true;
+                }
                 //space to play again
                 if (Input.GetKeyDown(KeyCode.Space))
                     SceneManager.LoadScene("Gameplay", LoadSceneMode.Single);
-                //'s' to see statistics
+                //s to see statistics
+                if (Input.GetKeyDown(KeyCode.S))
+                    SceneManager.LoadScene("Statistics", LoadSceneMode.Single);
+                
             }
             else
             {
