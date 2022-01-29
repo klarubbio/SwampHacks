@@ -10,6 +10,10 @@ public class GatorBehavior : MonoBehaviour
     public GameObject gator;
     public GameObject rock;
     public TextMeshPro endText;
+    public Sprite gatorSwim1;
+    public Sprite gatorSwim2;
+    public Sprite gatorJumping;
+    public Sprite gatorDead;
 
     private bool rockActive;
     private bool gatorJump;
@@ -18,6 +22,8 @@ public class GatorBehavior : MonoBehaviour
     private float nextObstacleTime; //set to -1 after obstacle is deployed
     private bool statsReported;
     private int score;
+
+
 
     // Start is called before the first frame update
     void Start()
