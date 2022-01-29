@@ -15,6 +15,7 @@ public class GatorBehavior : MonoBehaviour
     public Sprite gatorSwim2;
     public Sprite gatorJumping;
     public Sprite gatorDead;
+    public Canvas results;
 
     private bool rockActive;
     private bool gatorJump;
@@ -46,6 +47,7 @@ public class GatorBehavior : MonoBehaviour
         switchSprite = 0.2f;
         swim1 = true;
         gatorDeath = false;
+        results.GetComponent<Canvas>().enabled = false;
     }
 
     // Update is called once per frame
@@ -74,6 +76,7 @@ public class GatorBehavior : MonoBehaviour
                     endText.SetText("Your Score: " + score + "\n- Press space to play again \n- Press 'S' for statistics");
                     Debug.Log(score);
                     statsReported = true;
+                    results.GetComponent<Canvas>().enabled = true;
                 }
                 //space to play again
                 if (Input.GetKeyDown(KeyCode.Space))
