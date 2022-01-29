@@ -5,11 +5,16 @@ using System.IO;
 using System.Text;
 using System;
 using System.Globalization;
+using TMPro;
+using UnityEngine.UI;
+using System.Collections;
 
 public class StatisticsWriting : MonoBehaviour
 {
     private static string all = "all.csv";
     private static string calc = "calc.csv";
+    public TextMeshProUGUI text;
+
 
     // Start is called before the first frame update
     void Start()
@@ -103,5 +108,52 @@ public class StatisticsWriting : MonoBehaviour
         csv.AppendLine(newLine);
 
         File.AppendAllText(calc, csv.ToString());
+
+        string[] lines2 = System.IO.File.ReadAllLines(calc);
+        string h = "";
+        string a = "";
+        int countRows = -1;
+        foreach (string l in lines2){
+            if (countRows > -1){
+                string[] columns2 = l.Split(',');
+                int index = 0;
+                foreach(string c in columns2){
+                    if(index == 0){
+                        string date = c;
+                    }
+
+                    if(index == 1){
+                        h = c;
+                        
+                    }
+
+                    if(index == 2){
+                        a = c;
+                        
+                    }
+
+                    index++;
+
+                    if(index == 3){
+                        index = 0;
+                    }
+                    
+                }
+                
+            
+            }
+
+            countRows++;
+            
+        }
+        
+        textDisplayed.text = "hi";
+        //text.SetText(a);
+        //text.SetText(h);
+
+    
+
     }
+
+   
 }
