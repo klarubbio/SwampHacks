@@ -22,6 +22,9 @@ public class GatorBehavior : MonoBehaviour
     private float nextObstacleTime; //set to -1 after obstacle is deployed
     private bool statsReported;
     private int score;
+    private SpriteRenderer render;
+    private float switchSprite;
+    private bool swim1;
 
 
 
@@ -37,6 +40,9 @@ public class GatorBehavior : MonoBehaviour
         statsReported = false;
         score = 0;
         endText.gameObject.GetComponent<Renderer>().enabled = false;
+        render = gator.GetComponent<SpriteRenderer>();
+        switchSprite = 0.2f;
+        swim1 = true;
     }
 
     // Update is called once per frame
@@ -107,6 +113,24 @@ public class GatorBehavior : MonoBehaviour
             gatorJump = false;
             jumpTime = -1.0f;
         }
+
+
+        if (gatorJump)
+            render.sprite = gatorJumping;
+        else if (Time.time >= switchSprite && swim1)
+        {
+            render.sprite = gatorSwim2;
+            swim1 = false;
+            switchSprite += 0.2f;
+        }
+        else if (Time.time >= switchSprite && !swim1)
+        {
+            render.sprite = gatorSwim1;
+            swim1 = true;
+            switchSprite += 0.2f;
+        }
+
+
     }
 
     //generate time for next obstacle
