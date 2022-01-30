@@ -126,7 +126,11 @@ public class GatorBehavior : MonoBehaviour
 
 
         if (gatorDeath)
+        {
             render.sprite = gatorDead;
+            Vector3 posBefore = gator.transform.position;
+            gator.transform.position = new Vector3(posBefore.x, posBefore.y, posBefore.z + 0.08f);
+        }
         else if (gatorJump)
             render.sprite = gatorJumping;
         else if (Time.time >= switchSprite && swim1)
