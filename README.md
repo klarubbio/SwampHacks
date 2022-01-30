@@ -1,2 +1,4 @@
 # SwampHacks
-# git tutorial: https://unityatscale.com/unity-version-control-guide/how-to-setup-unity-project-on-github/
+# Get Up and Go: A Gator Game
+
+Build in Unity Version 2020.3.26f1
