@@ -686,6 +686,7 @@ GameObject:
   - component: {fileID: 2083448267}
   - component: {fileID: 2083448266}
   - component: {fileID: 2083448265}
+  - component: {fileID: 2083448268}
   m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -850,3 +851,23 @@ RectTransform:
   m_AnchoredPosition: {x: 3, y: -2}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2083448268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2083448264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c63e00648dbc78a459f96e08fd526c88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gator: {fileID: 0}
+  rock: {fileID: 0}
+  endText: {fileID: 2083448265}
+  gatorSwim1: {fileID: 0}
+  gatorSwim2: {fileID: 0}
+  gatorJumping: {fileID: 0}
+  gatorDead: {fileID: 0}
+  results: {fileID: 0}

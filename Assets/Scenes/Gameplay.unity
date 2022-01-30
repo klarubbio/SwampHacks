@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -613,6 +613,7 @@ GameObject:
   - component: {fileID: 1131560756}
   - component: {fileID: 1131560755}
   - component: {fileID: 1131560754}
+  - component: {fileID: 1131560757}
   m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -772,6 +773,26 @@ RectTransform:
   m_AnchoredPosition: {x: 2.7, y: -2}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1131560757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1131560753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c63e00648dbc78a459f96e08fd526c88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gator: {fileID: 0}
+  rock: {fileID: 0}
+  endText: {fileID: 1131560754}
+  gatorSwim1: {fileID: 0}
+  gatorSwim2: {fileID: 0}
+  gatorJumping: {fileID: 0}
+  gatorDead: {fileID: 0}
+  results: {fileID: 0}
 --- !u!1 &1424339400
 GameObject:
   m_ObjectHideFlags: 0

@@ -73,7 +73,7 @@ public class GatorBehavior : MonoBehaviour
                     gatorDeath = true;
                     GetComponent<StatisticsWriting>().End(score);
                     endText.gameObject.GetComponent<Renderer>().enabled = true;
-                    endText.SetText("Your Score: " + score + "\n- Press space to play again \n- Press 'S' for statistics");
+                    endText.SetText(score.ToString());
                     Debug.Log(score);
                     statsReported = true;
                     results.GetComponent<Canvas>().enabled = true;
