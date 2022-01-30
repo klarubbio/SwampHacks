@@ -29,6 +29,7 @@ public class GatorBehavior : MonoBehaviour
     private bool swim1;
     private bool gatorDeath;
 
+    public Text final;
 
 
     // Start is called before the first frame update
@@ -38,7 +39,7 @@ public class GatorBehavior : MonoBehaviour
         rockActive = false;
         gatorJump = false;
         jumpTime = -1.0f;
-        jumpHeight = new Vector3(0.0f, 0.01f, 0.0f);
+        jumpHeight = new Vector3(0.0f, 0.08f, 0.0f);
         nextObstacleTime = -1.0f;
         statsReported = false;
         score = 0;
@@ -62,7 +63,7 @@ public class GatorBehavior : MonoBehaviour
             {
                 score += 10;
                 nextObstacleTime = -1.0f;
-                rock.transform.position = new Vector3(5.1f, -0.2f, -3.0f);
+                rock.transform.position = new Vector3(5.1f, -0.6f, -3.0f);
             }
             //indicates collision has occured
             else if(rock.transform.position.x == 5.0f)
@@ -77,6 +78,8 @@ public class GatorBehavior : MonoBehaviour
                     Debug.Log(score);
                     statsReported = true;
                     results.GetComponent<Canvas>().enabled = true;
+
+                    final.text = score.ToString();
                 }
                 //space to play again
                 if (Input.GetKeyDown(KeyCode.Space))
@@ -90,7 +93,7 @@ public class GatorBehavior : MonoBehaviour
             {
                 //set rock pos until it hits gator or action is taken
                 Vector3 posBefore = rock.transform.position;
-                rock.transform.position = new Vector3(3, posBefore.y, posBefore.z + 0.01f);
+                rock.transform.position = new Vector3(3, posBefore.y, posBefore.z + 0.08f);
             }
         }
 
@@ -104,19 +107,19 @@ public class GatorBehavior : MonoBehaviour
         }
 
         //move up
-        if(gatorJump && Time.time < (jumpTime + 0.5f))
+        if(gatorJump && Time.time < (jumpTime + 0.75f))
         {
             gator.transform.position += jumpHeight;
         }
         //move back down
-        else if(gatorJump && Time.time < (jumpTime + 1.0f))
+        else if(gatorJump && Time.time < (jumpTime + 1.5f))
         {
             gator.transform.position -= jumpHeight;
         }
         //reset to defaults
         else if(gatorJump && Time.time > (jumpTime + 1.0f))
         {
-            gator.transform.position = new Vector3(3.0f, 0.0f, 1.75f);
+            gator.transform.position = new Vector3(3.0f, -0.4f, 1.75f);
             gatorJump = false;
             jumpTime = -1.0f;
         }
